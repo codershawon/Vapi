@@ -1,7 +1,7 @@
 :root {
     --primary-color: #121417;
     --secondary-color: #ffffff4d;
-    --background-color: #27272a;
+    --background-color: #1c1e21;
     --background-hover-color: #ffffffcc;
     --btn-background-color: #37aa9dcc;
     --btn-background-hover-color: #37aa9d;
@@ -129,8 +129,11 @@ p {
     display: flex;
 }
 .rk-vapi-container .rk-vapi-right .rk-vapi-assistant-left{
-    width: 22%;
+    width: 25%;
     border-right: 1px solid var(--background-color);
+}
+.rk-vapi-container .rk-vapi-right .rk-vapi-assistant-right{
+    width: 75%;
 }
 .rk-vapi-container .rk-vapi-right .rk-vapi-assistant-buttons{
     display: flex;
@@ -139,7 +142,8 @@ p {
     padding: 18px;
     border-bottom: 1px solid var(--background-color)
 }
-.rk-vapi-container .rk-vapi-right .rk-vapi-assistant-buttons button{
+.rk-vapi-container .rk-vapi-right .rk-vapi-assistant-buttons button,
+.rk-vapi-container .rk-assistant-details-right button{
     display: flex;
     align-items: center;
     gap: 10px;
@@ -152,7 +156,8 @@ p {
 .rk-vapi-container .rk-vapi-right .rk-vapi-assistant-buttons button:hover{
     background-color: var(--btn-background-hover-color);
 } 
-.rk-vapi-container .rk-vapi-right .rk-vapi-assistant-buttons button svg{
+.rk-vapi-container .rk-vapi-right .rk-vapi-assistant-buttons button svg,
+.rk-vapi-container .rk-assistant-details-right svg{
     fill: #ffffff80;
 } 
 .rk-vapi-container .rk-vapi-right .rk-vapi-assistant-buttons button:hover svg{
@@ -160,7 +165,8 @@ p {
     transform: translate(var(--rk-translate-x), var(--rk-translate-y)) rotate(var(--rk-rotate)) skew(var(--rk-skew-x)) skewY(var(--rk-skew-y)) scaleX(var(--rk-scale-x)) scaleY(var(--rk-scale-y));
     transition: all 0.15s ease-in-out;
 } 
-.rk-vapi-container .rk-vapi-right .rk-vapi-assistant-buttons span{
+.rk-vapi-container .rk-vapi-right .rk-vapi-assistant-buttons span,
+.rk-vapi-container .rk-assistant-details-right span{
     color: #ffffff;
 }
 .rk-vapi-container .rk-vapi-right .rk-vapi-assistant-buttons a{
@@ -188,4 +194,263 @@ p {
     padding: 8px;
     background-color: var(--menus-active-background-color);
     border-radius: var(--border-radius);
+}
+/* Assistant Details Card */
+.rk-vapi-container .rk-assistant-details-card h2{
+    color: #ffffff;
+    margin: 0;
+}
+.rk-vapi-container .rk-assistant-details-card .rk-assistant-details-inner{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.rk-vapi-container .rk-assistant-details-inner .rk-assistant-details-right{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.rk-vapi-container .rk-assistant-details-right > svg{
+    transform: rotate(var(--rk-rotate));
+    padding: 20px 10px;
+    border: 1px solid var(--background-color); 
+    border-radius: var(--border-radius);
+}
+.rk-vapi-container .rk-vapi-assistant-right{
+    padding: 18px;
+}
+.rk-vapi-container .rk-vapi-assistant-right .rk-assistant-id-text{
+    width: 220px;
+}
+.rk-vapi-container .rk-vapi-assistant-right .rk-assistant-id-text span{
+    color: var(--secondary-color);
+    text-wrap: nowrap;
+    overflow: hidden;
+    max-width: 70%;
+    font-size: 12px;
+}
+.rk-vapi-container .rk-vapi-assistant-right .rk-assistant-id-text{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.rk-vapi-container .rk-vapi-assistant-right .rk-assistant-id-text svg{
+    fill: var(--secondary-color);
+    width: 14px;
+    height: 14px;
+    background-color: var(--background-color);
+    padding: 4px;
+    border-radius: var(--border-radius);
+}
+.rk-vapi-container .rk-vapi-assistant-right .rk-assistant-copy-id{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Assistant Options */
+.rk-vapi-container .rk-assistant-details-options{
+    padding: 16px 0px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.rk-vapi-container .rk-assistant-options-left ul{
+    padding: 0 20px;
+    display: flex;
+    gap: 30px;
+}
+.rk-vapi-container .rk-assistant-details-options ul li{
+    color: #ffffff;
+    font-size: 12px;
+}
+.rk-vapi-container .rk-assistant-options-left ul li:first-child::marker{
+    color: rgb(93, 254, 202);
+}
+.rk-vapi-container .rk-assistant-options-left ul li:nth-child(2)::marker{
+    color: rgb(219, 39, 119);;
+}
+.rk-vapi-container .rk-assistant-options-left ul li:nth-child(3)::marker{
+    color: rgb(14, 165, 233);
+}
+.rk-vapi-container .rk-assistant-options-left ul li:nth-child(4)::marker{
+    color: rgb(252, 211, 77);
+}
+.rk-vapi-container .rk-assistant-options-left ul li:last-child::marker{
+    color: rgb(192, 38, 211);
+}
+.rk-vapi-container .rk-assistant-details-options ul li::marker{
+    font-size: 16px;
+}
+.rk-vapi-container .rk-assistant-details-options .rk-assistant-options-right,
+.rk-vapi-container .rk-assistant-details-options .rk-assistant-options-mode{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.rk-vapi-container .rk-assistant-details-options .rk-assistant-options-mode{
+    border: 1px solid var(--secondary-color);
+    padding: 10px;
+    border-radius: var(--border-radius);
+}
+.rk-vapi-container .rk-assistant-details-options .rk-assistant-options-right h5,
+.rk-vapi-container .rk-assistant-details-options .rk-assistant-options-right span{
+    margin: 0;
+    color: var(--secondary-color);
+}
+.rk-vapi-container .rk-assistant-details-options .rk-assistant-options-right svg{
+    fill: var(--secondary-color);
+}
+/* Modal container hidden by default */
+.modal {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--btn-background-color);
+    border: 1px solid var(--btn-background-hover-color);
+    z-index: 1000;
+    padding: 15px;
+    box-shadow: 0px 4px 8px var(--primary-color);
+    border-radius: 5px;
+    width: 250px;
+  }
+  /* Modal content */
+  .modal-content {
+    position: relative;
+    color: #ffffff;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+  }
+  .close-icon {
+    cursor: pointer;
+    color: var(--primary-color);
+  }
+  /* Dropdown Menus */
+.open {
+    display: block;
+}
+.hidden {
+    display: none;
+}
+#dropdownMenu,#dropdownMenu-two {
+    min-width: 150px;
+    position: absolute;
+    right: 0;
+    z-index: 1000;
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    border: 1px solid var(--background-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+#dropdownMenu{
+    top: 55px;
+}
+#dropdownMenu-two{
+    top: 70px;
+}
+#dropdownMenu ul,
+#dropdownMenu-two ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+}
+#dropdownMenu ul li,
+#dropdownMenu-two ul li{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius:var(--border-radius);
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+#dropdownMenu ul li:hover,
+#dropdownMenu-two ul li:hover{
+    background-color: var(--primary-color);
+    border: 1px solid var(--secondary-color);
+}
+#dropdownMenu ul li svg,
+#dropdownToggle-two svg{
+    height: 14px;
+    width: 14px;
+}
+/* Latency */
+.rk-vapi-container .rk-assistant-details-latency{
+    background-color: var(--background-color);
+    padding: 12px;
+    border-radius: var(--border-radius);
+}
+.rk-vapi-container .rk-assistant-latency-inner{
+    display: flex;
+    justify-content: space-between;
+}
+.rk-vapi-container .rk-assistant-latency-inner .rk-assistant-latency-left{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.rk-vapi-container .rk-assistant-latency-inner svg:first-child{
+    fill: var(--secondary-color);
+    background-color: var(--primary-color);
+    padding: 6px;
+    border-radius: var(--border-radius);
+}
+.rk-vapi-container .rk-assistant-latency-inner .tooltip-svg{
+    fill: #fde047!important;
+    background-color: unset!important;
+}
+.rk-vapi-container .rk-assistant-latency-inner h3{
+    color: var(--background-hover-color);
+    margin: 0;
+}
+.rk-vapi-container .rk-assistant-latency-inner h4{
+    color: var(--btn-background-color);
+    margin: 0;
+    line-height: 2;
+}
+.rk-vapi-container .rk-assistant-latency-inner .rk-assistant-latency-right {
+    background:var(--primary-color);
+    border: 1px solid var(--secondary-color);
+    padding: 6px 12px;
+    border-radius: var(--border-radius);
+}
+.rk-vapi-container .rk-assistant-latency-inner .rk-assistant-latency-right span{
+    color: var(--secondary-color);
+}
+
+/* Tooltip Text */
+.tooltip-container {
+    position: relative;
+    display: inline-block; 
+}
+.tooltip-text {
+    visibility: hidden;
+    width: 250px;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 5px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+    position: absolute;
+    z-index: 1;
+    bottom: -15px;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Latency Pickers */
+.rk-assistant-latency-pickers{
+    display:flex;
+    margin-top: 20px;
 }

@@ -22,8 +22,14 @@ body{
     box-sizing: border-box;
     font-family: var(--fonts-body);
 }
-p {
+p,h1,h2,h3,h4,h5 {
    margin: 0px;
+}
+h2,h4,h5{
+    color: #fff;
+}
+p{
+    color: var(--secondary-color);
 }
 .rk-vapi-container{
     background-color: var(--primary-color);
@@ -33,6 +39,24 @@ p {
     padding: 18px;
     overflow-x: hidden; 
 }
+/* Common Button */
+.common-btn{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    background-color: var(--btn-background-color);
+    border-radius: var(--border-radius);
+    color: #fff;
+    border-color: transparent;
+    cursor: pointer;
+} 
+.common-btn:hover{
+    background-color: var(--btn-background-hover-color);
+} 
+.common-btn svg{
+    fill: #ffffff80;
+} 
 /* Left Section CSS */
 .rk-vapi-container .rk-vapi-left{
     width: 10%;
@@ -112,7 +136,6 @@ p {
 .rk-vapi-container .rk-vapi-left .rk-vapi-menus-common p,
 .rk-vapi-container .rk-vapi-left .rk-vapi-menus-left p,
 .rk-vapi-container .rk-vapi-left .rk-vapi-submenu-container p{
-    color: var(--secondary-color);
     font-size: 14px;
 }
 .rk-vapi-container .rk-vapi-left .rk-vapi-menus-common:hover svg{
@@ -142,25 +165,8 @@ p {
     padding: 18px;
     border-bottom: 1px solid var(--background-color)
 }
-.rk-vapi-container .rk-vapi-right .rk-vapi-assistant-buttons button,
-.rk-vapi-container .rk-assistant-details-right button{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 16px;
-    background-color: var(--btn-background-color);
-    border-radius: var(--border-radius);
-    border-color: transparent;
-    cursor: pointer;
-} 
-.rk-vapi-container .rk-vapi-right .rk-vapi-assistant-buttons button:hover{
-    background-color: var(--btn-background-hover-color);
-} 
-.rk-vapi-container .rk-vapi-right .rk-vapi-assistant-buttons button svg,
-.rk-vapi-container .rk-assistant-details-right svg{
-    fill: #ffffff80;
-} 
-.rk-vapi-container .rk-vapi-right .rk-vapi-assistant-buttons button:hover svg{
+.rk-vapi-container .rk-vapi-right .rk-vapi-assistant-buttons button:hover svg,
+.rk-vapi-container .assistant-bottom .blank-template:hover svg{
     --tw-rotate: 90deg;
     transform: translate(var(--rk-translate-x), var(--rk-translate-y)) rotate(var(--rk-rotate)) skew(var(--rk-skew-x)) skewY(var(--rk-skew-y)) scaleX(var(--rk-scale-x)) scaleY(var(--rk-scale-y));
     transition: all 0.15s ease-in-out;
@@ -196,9 +202,12 @@ p {
     border-radius: var(--border-radius);
 }
 /* Assistant Details Card */
+.rk-vapi-container .rk-assistant-details-card{
+    padding: 16px;
+    border-bottom: 1px solid var(--background-color);
+}
 .rk-vapi-container .rk-assistant-details-card h2{
     color: #ffffff;
-    margin: 0;
 }
 .rk-vapi-container .rk-assistant-details-card .rk-assistant-details-inner{
     display: flex;
@@ -215,9 +224,7 @@ p {
     padding: 20px 10px;
     border: 1px solid var(--background-color); 
     border-radius: var(--border-radius);
-}
-.rk-vapi-container .rk-vapi-assistant-right{
-    padding: 18px;
+    fill:var(--secondary-color);
 }
 .rk-vapi-container .rk-vapi-assistant-right .rk-assistant-id-text{
     width: 220px;
@@ -301,6 +308,114 @@ p {
 .rk-vapi-container .rk-assistant-details-options .rk-assistant-options-right svg{
     fill: var(--secondary-color);
 }
+/* Create Assistant Modal Styling */
+.rk-vapi-container .modal-another {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    max-width: 600px;
+    margin: 16px;
+    height: auto;
+    background-color: var(--primary-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+}
+.rk-vapi-container .assistant-top{
+    display: flex;
+    align-items: center; 
+    gap: 8px;
+    padding: 16px;
+    background-color: var(--background-color);
+    border-radius: 11px 11px 0 0;
+}
+.rk-vapi-container .assistant-top svg,
+.rk-vapi-container .quickstart svg{
+    height: 24px;
+    width: 24px;
+    fill: var(--secondary-color);
+} 
+.rk-vapi-container .assistant-top .svg-icon{
+    padding: 4px;
+    border-radius: var(--border-radius);
+    background-color: var(--primary-color);
+    line-height: 1;
+}
+.rk-vapi-container .assistant-top h2{
+    margin: 0px;
+    font-size: 20px;
+}
+.rk-vapi-container h3,
+.rk-vapi-container .assistant-bottom .assistantName{
+    color: #fff;
+    margin: 0 0 10px;
+}
+.rk-vapi-container .assistant-bottom{
+    padding: 16px;
+}
+.rk-vapi-container .assistant-bottom .form-group{
+    margin-top: 20px;
+}
+.rk-vapi-container .assistant-bottom #assistantName{
+    width: 100%;
+    padding: 8px 16px;
+    box-sizing: border-box;
+    background: var(--background-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    margin-top: 6px;
+}
+.rk-vapi-container .assistant-bottom .blank-template{
+    display: flex;
+    align-items: flex-start;
+    border: 1px solid var(--btn-background-color);
+    border-radius: var(--border-radius);
+    padding: 12px;
+    gap: 16px;
+    margin-top: 30px;
+}
+.rk-vapi-container .assistant-bottom .blank-template svg{
+    height: 32px;
+    width: 32px;
+    fill: var(--secondary-color);
+}
+.rk-vapi-container .assistant-bottom .blank-template p,
+.rk-vapi-container .quickstart p{
+    font-size: 12px;
+    margin-top: 5px;
+}
+.rk-vapi-container .quickstart{
+    position: relative;
+}
+.rk-vapi-container .quickstart-inner{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 16px;
+    border: 1px solid #4b5563;
+    border-radius: var(--border-radius);
+    margin-top: 30px;
+}
+.rk-vapi-container .quickstart-inner .quickstart-card{
+    flex-basis: calc(50% - 32px);
+    padding: 12px;
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+}
+.rk-vapi-container .modal-footer{
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 16px;
+}
+.rk-vapi-container .modal-footer #closeModalButton{
+    border-radius: var(--border-radius);
+    background: transparent;
+    padding: 8px 16px;
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+}
 /* Modal container hidden by default */
 .modal {
     display: none;
@@ -336,7 +451,7 @@ p {
 .hidden {
     display: none;
 }
-#dropdownMenu,#dropdownMenu-two {
+#dropdownMenu,.dropdown-menu {
     min-width: 150px;
     position: absolute;
     right: 0;
@@ -349,17 +464,35 @@ p {
 #dropdownMenu{
     top: 55px;
 }
-#dropdownMenu-two{
-    top: 70px;
+.dropdown-menu{
+    top: 85px;
+}
+.dropdown-container .dropdown-toggle{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 20px;
+    background-color: #27272a;
+    padding: 6px 12px;
+    border-radius: var(--border-radius);
+}
+.dropdown-container .dropdown-toggle span{
+    color: #fff;
+}
+.dropdown-container .dropdown-toggle svg{
+    fill: #fff;
+    height: 12px;
+    width: 12px;
 }
 #dropdownMenu ul,
-#dropdownMenu-two ul{
+.dropdown-menu ul{
     list-style-type: none;
     margin: 0;
     padding: 10px;
 }
 #dropdownMenu ul li,
-#dropdownMenu-two ul li{
+.dropdown-menu ul li{
     display: flex;
     align-items: center;
     gap: 5px;
@@ -370,14 +503,15 @@ p {
     cursor: pointer;
 }
 #dropdownMenu ul li:hover,
-#dropdownMenu-two ul li:hover{
+.dropdown-menu ul li:hover{
     background-color: var(--primary-color);
     border: 1px solid var(--secondary-color);
 }
 #dropdownMenu ul li svg,
-#dropdownToggle-two svg{
+.dropdown-menu svg{
     height: 14px;
     width: 14px;
+    fill: var(--secondary-color);
 }
 /* Latency */
 .rk-vapi-container .rk-assistant-details-latency{
@@ -403,10 +537,6 @@ p {
 .rk-vapi-container .rk-assistant-latency-inner .tooltip-svg{
     fill: #fde047!important;
     background-color: unset!important;
-}
-.rk-vapi-container .rk-assistant-latency-inner h3{
-    color: var(--background-hover-color);
-    margin: 0;
 }
 .rk-vapi-container .rk-assistant-latency-inner h4{
     color: var(--btn-background-color);
@@ -450,7 +580,159 @@ p {
 }
 
 /* Latency Pickers */
-.rk-assistant-latency-pickers{
-    display:flex;
+.rk-assistant-latency-pickers {
+    display: flex;
+    align-items: center;
     margin-top: 20px;
 }
+.latency-bar {
+    position: relative !important;
+    height: 13px; 
+    transition: height 0.5s ease, background-color 0.5s ease;
+}
+.tooltip {
+    visibility: hidden;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    top: 150%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease; 
+    white-space: nowrap;
+}
+.latency-bar:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(-50%, 10px);
+}
+.latency-bar:hover {
+    height: 18px!important;
+}
+/* Assistant Tablist */
+.rk-vapi-container .assistant-tablist{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.rk-vapi-container .assistant-tablist-inner svg{
+    height: 14px;
+    width: 14px;
+    fill:var(--secondary-color);
+}
+.rk-vapi-container .assistant-tablist .assistant-tablist-inner button{
+    background: transparent;
+    border: none;
+}
+.rk-vapi-container .assistant-tab-content{
+    padding: 16px;
+}
+.rk-vapi-container .assistant-tablist-inner{
+    display: flex;
+    border: 1px solid var(--background-color);
+    border-radius: var(--border-radius);
+    padding: 6px;
+}
+.rk-vapi-container .assistant-tablist-inner span{
+    color: #ffffff;
+} 
+.rk-vapi-container .assistant-tablist-inner button{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 12px;
+}
+.rk-vapi-container .assistant-tablist .tab-button{
+    padding: 10px;
+    cursor: pointer;
+  }
+.rk-vapi-container .assistant-tablist .tab-content {
+    margin-top: 20px;
+    display: none;
+  }
+.rk-vapi-container .assistant-tablist .assistant-publish-discard-box svg{
+    height: 16px;
+    width: 16px;
+    fill: var(--secondary-color);
+}
+.rk-vapi-container .assistant-tablist .assistant-publish-discard-box{
+    display: flex;
+    gap: 8px;
+}
+.rk-vapi-container .assistant-tablist .assistant-publish-discard-box button:last-child{
+    background: var(--background-color);
+    border: none;
+    padding: 0px 10px;
+    border-radius: var(--border-radius);
+}
+.rk-vapi-container .tabs-content{
+    padding-top: 30px;
+}
+.rk-vapi-container .tabs-content #tab1{
+    border: 1px solid var(--background-color);
+    padding: 16px;
+    border-radius: var(--border-radius);
+}
+.rk-vapi-container .tabs-content #tab1 .tab-content-inner{
+    background-image: url("https://dashboard.vapi.ai/images/square-dots.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 100%;
+    background-color: #1c1e21;
+    border-radius: var(--border-radius);
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.rk-vapi-container #tab1 .tab-content-inner .tab-content-left{
+    padding: 32px;
+    flex-basis: 80%;
+    max-width: 600px;
+}
+.rk-vapi-container #tab1 .tab-content-inner .tab-content-left > p{
+    color: #fff;
+    margin-top: 20px;
+}
+.rk-vapi-container #tab1 .tab-content-inner .tab-content-left .tab-content-text p{
+    color: #ffe082;
+}
+.rk-vapi-container #tab1 .tab-content-inner .tab-content-left .tab-content-text{
+    background-color: #eab3081a;
+    padding: 16px;
+    border: 1px solid #eab30833;
+    border-radius: var(--border-radius);
+    margin-top: 20px;
+}
+.rk-vapi-container #tab1 .tab-content-inner .tab-content-right{
+    padding: 32px 16px;
+    flex-basis: 20%;
+}
+.rk-vapi-container #tab1 .tab-content-left .tab-content-blocks,
+.rk-vapi-container #tab1 .tab-content-inner .tab-content-left .tab-content-feedback{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.rk-vapi-container #tab1 .tab-content-inner .tab-content-left .tab-content-feedback{
+    margin: 20px 0;
+}
+.rk-vapi-container #tab1 .tab-content-inner .tab-content-left .tab-content-feedback svg,
+.rk-vapi-container #tab1 .tab-content-inner .tab-content-left .tab-content-feedback p:first-child{
+    fill: var(--btn-background-color);
+    color: var(--btn-background-color);
+}
+.rk-vapi-container #tab1 .tab-content-left .tab-content-blocks svg{
+    fill: #fff;
+}
+.rk-vapi-container .tabs-content #tab1 > p{
+    font-size: 14px;
+}
+  
+  
+  

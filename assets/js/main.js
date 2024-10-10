@@ -28,6 +28,27 @@ $(document).ready(function() {
         }
     });
 
+ /* Create Assistant Modal */
+
+  $('#openModalButton').click(function() {
+    $('#modal-another').fadeIn();
+    });
+
+    $('#closeModalButton').click(function() {
+        $('#modal-another').fadeOut();
+    });
+
+    $('.modal-another-content').click(function(event) {
+        event.stopPropagation();
+    });
+
+    $(document).click(function(event) {
+        if (!$(event.target).closest('.modal-another-content, #openModalButton').length) {
+            $('#modal-another').fadeOut();
+        }
+    });
+
+
     /* Copy ID */
     $(".copy-id").click(function() {
         // Get the text inside the span
@@ -65,7 +86,7 @@ $(document).ready(function() {
             $('#idModal').fadeOut();
         });
 
-    // Toggle dropdown
+    /*------- Toggle dropdown-------- */
     $('#dropdownToggle').on('click', function(event) {
         event.stopPropagation();
         $('#dropdownMenu').toggleClass('hidden open');
@@ -77,17 +98,60 @@ $(document).ready(function() {
         }
     });
 
-    // Another Dropdown
-    $('#dropdownToggle-two').on('click', function(event) {
+    /*------ Another Dropdown---------- */
+
+    $('.dropdown-toggle').on('click', function(event) {
         event.stopPropagation();
-        $('#dropdownMenu-two').toggleClass('hidden open');
+        $(this).next('.dropdown-menu').toggleClass('hidden').siblings('.dropdown-menu').addClass('hidden');
     });
+
     // Close dropdown when clicking outside
-    $(document).on('click', function(event) {
-        if (!$(event.target).closest('#dropdownToggle-two, #dropdownMenu-two').length) {
-            $('#dropdownMenu-two').removeClass('open').addClass('hidden');
-        }
-    });
+    $(document).on('click', () => $('.dropdown-menu').addClass('hidden'));
+
+    // Prevent dropdown from closing when clicking inside
+    $('.dropdown-menu').on('click', (event) => event.stopPropagation());
+
+  /* Latency Color Picker */
+changeWidth('web');
+
+$('#dropdownMenu-two li').on('click', function() {
+    var menu = $(this).data('menu');
+    
+    // Call the changeWidth function with the selected menu
+    changeWidth(menu);
+});
+
+function changeWidth(menu) {
+    // Select the three divs
+    var div1 = $('#div1');
+    var div2 = $('#div2');
+    var div3 = $('#div3');
+    
+    if (menu === 'web') {
+        div1.css('width', '50%');
+        div2.css('width', '30%');
+        div3.css('width', '20%');
+    } else if (menu === 'twilio') {
+        div1.css('width', '40%');
+        div2.css('width', '40%');
+        div3.css('width', '20%');
+    } else if (menu === 'vonage') {
+        div1.css('width', '30%');
+        div2.css('width', '30%');
+        div3.css('width', '40%');
+    }
+}
+
+/* Tablist */
+$('.tab-button').on('click', function() {
+    var tabID = $(this).data('tab');
+
+    // Hide all tab contents
+    $('.tab-content').hide();
+
+    // Show the selected tab content
+    $('#' + tabID).show();
+  });
 });
 
   

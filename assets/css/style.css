@@ -30,6 +30,7 @@ h2,h4,h5{
 }
 p{
     color: var(--secondary-color);
+    font-size: 12px;
 }
 .rk-vapi-container{
     background-color: var(--primary-color);
@@ -144,6 +145,10 @@ p{
 .rk-vapi-container .rk-vapi-left .rk-vapi-menus-common:hover p{
     color: var(--background-hover-color);
 }
+/* Tab Asistant */
+.hidden {
+    display: none;
+}
 /* Assistant */
 .rk-vapi-container .rk-vapi-right{
     width: 90%;
@@ -200,6 +205,7 @@ p{
     padding: 8px;
     background-color: var(--menus-active-background-color);
     border-radius: var(--border-radius);
+    cursor: pointer;
 }
 /* Assistant Details Card */
 .rk-vapi-container .rk-assistant-details-card{
@@ -298,6 +304,7 @@ p{
 .rk-vapi-container .rk-assistant-details-options .rk-assistant-options-mode{
     border: 1px solid var(--secondary-color);
     padding: 10px;
+    margin: 0;
     border-radius: var(--border-radius);
 }
 .rk-vapi-container .rk-assistant-details-options .rk-assistant-options-right h5,
@@ -448,10 +455,18 @@ p{
 .open {
     display: block;
 }
-.hidden {
+.hidden,.invisible {
     display: none;
 }
-#dropdownMenu,.dropdown-menu {
+.dropdown-container, .dropdown-container-two{
+    position: relative;
+}
+#dropdown{
+    width: 100%;
+    background-color: var(--primary-color);
+    top: 45px;
+}
+#dropdownMenu,.dropdown-menu,.dropdown-menu-two{
     min-width: 150px;
     position: absolute;
     right: 0;
@@ -464,10 +479,13 @@ p{
 #dropdownMenu{
     top: 55px;
 }
-.dropdown-menu{
-    top: 85px;
+.dropdown-menu,
+.dropdown-menu-two{
+    top: 50px;
 }
-.dropdown-container .dropdown-toggle{
+.dropdown-container .dropdown-toggle,
+.dropdown-container-two .dropdown-toggle-two,
+.rk-vapi-container .additional-configuration-inner-right input[type="number"]{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -476,23 +494,30 @@ p{
     background-color: #27272a;
     padding: 6px 12px;
     border-radius: var(--border-radius);
+    width: 100%;
+    box-sizing: border-box;
 }
-.dropdown-container .dropdown-toggle span{
+.dropdown-container .dropdown-toggle span,
+.dropdown-container-two .dropdown-toggle-two span{
     color: #fff;
 }
-.dropdown-container .dropdown-toggle svg{
+.dropdown-container .dropdown-toggle svg,
+.dropdown-container-two .dropdown-toggle-two svg
+{
     fill: #fff;
     height: 12px;
     width: 12px;
 }
 #dropdownMenu ul,
-.dropdown-menu ul{
+.dropdown-menu ul,
+.dropdown-menu-two ul{
     list-style-type: none;
     margin: 0;
     padding: 10px;
 }
 #dropdownMenu ul li,
-.dropdown-menu ul li{
+.dropdown-menu ul li,
+.dropdown-menu-two ul li{
     display: flex;
     align-items: center;
     gap: 5px;
@@ -501,6 +526,28 @@ p{
     border-radius:var(--border-radius);
     border: 1px solid transparent;
     cursor: pointer;
+    color: #fff;
+}
+.dropdown-menu-two ul li{
+    width: 100%!important;
+    padding-left: 40px;
+}
+.dropdown-menu li.active,
+.dropdown-menu-two li.active{
+    font-weight: bold;
+    position: relative;
+}
+.dropdown-menu li.active::after{
+    content: '✔';
+    position: absolute;
+    right: 10px;
+    color: #fff;
+}
+.dropdown-menu-two li.active::after{
+    content: '✔';
+    position: absolute;
+    left: 10px;
+    color: #fff;
 }
 #dropdownMenu ul li:hover,
 .dropdown-menu ul li:hover{
@@ -508,7 +555,8 @@ p{
     border: 1px solid var(--secondary-color);
 }
 #dropdownMenu ul li svg,
-.dropdown-menu svg{
+.dropdown-menu svg,
+.dropdown-menu-two ul li{
     height: 14px;
     width: 14px;
     fill: var(--secondary-color);
@@ -627,7 +675,7 @@ p{
 }
 .rk-vapi-container .assistant-tablist .assistant-tablist-inner button{
     background: transparent;
-    border: none;
+    border: 1px solid transparent;
 }
 .rk-vapi-container .assistant-tab-content{
     padding: 16px;
@@ -637,6 +685,7 @@ p{
     border: 1px solid var(--background-color);
     border-radius: var(--border-radius);
     padding: 6px;
+    gap: 10px;
 }
 .rk-vapi-container .assistant-tablist-inner span{
     color: #ffffff;
@@ -673,10 +722,13 @@ p{
 .rk-vapi-container .tabs-content{
     padding-top: 30px;
 }
-.rk-vapi-container .tabs-content #tab1{
+.common-style{
     border: 1px solid var(--background-color);
-    padding: 16px;
     border-radius: var(--border-radius);
+}
+.rk-vapi-container .tabs-content #tab1,
+.rk-vapi-container .voice-configuration{
+    padding: 16px;
 }
 .rk-vapi-container .tabs-content #tab1 .tab-content-inner{
     background-image: url("https://dashboard.vapi.ai/images/square-dots.svg");
@@ -733,6 +785,185 @@ p{
 .rk-vapi-container .tabs-content #tab1 > p{
     font-size: 14px;
 }
+.rk-vapi-container .tab-button.active,
+.rk-vapi-container .tab-button:hover{
+    border: 1px solid var(--background-color)!important;
+    border-radius: var(--border-radius);
+    background-color: var(--background-color)!important;
+}
+.rk-vapi-container .tab-content .transriber-inner,
+.rk-vapi-container .tab-content .additional-configuration-inner{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 20px 0px;
+}
+.rk-vapi-container .tab-content .additional-configuration-inner-left,
+.rk-vapi-container .tab-content .transriber-inner-left,
+.rk-vapi-container .tab-content .additional-configuration-inner-right,
+.rk-vapi-container .tab-content .transriber-inner-right{
+    width: 50%;
+}
+.rk-vapi-container .tab-content .transriber-top{
+    border-bottom: 1px solid var(--background-color);
+    padding: 16px;
+}
+.rk-vapi-container .tab-content .transcriber-bottom{
+    padding: 16px;
+}
+.rk-vapi-container .tab-content .voice-configuration-info{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 2px;
+}
+.rk-vapi-container .tab-content .voice-configuration-info svg{
+    height: 12px;
+    width: 12px;
+    fill: #ca8a04;
+}
+.rk-vapi-container .tab-content .voice-configuration-info p{
+    color:#ca8a04
+}
+.rk-vapi-container .tab-content .voice-configuration .checkbox{
+    color: #fff;
+}
+
+/* Additional Configuration */
+.rk-vapi-container .tab-content .additional-configuration{
+    margin-top: 50px;
+}
+.rk-vapi-container .additional-configuration-top,
+.rk-vapi-container .filler-injection,
+.rk-vapi-container .emotion{
+    padding: 16px;
+}
+.rk-vapi-container .additional-configuration-inner,
+.rk-vapi-container .tab-content .additional-configuration .punctuation-boundaries{
+    padding: 16px;
+    border-top: 1px solid var(--background-color);
+}
+/* Toggle Button */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #374151b3;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 4px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+input:checked + .slider {
+    background-color: #37aa9d;
+}
+input:checked + .slider:before {
+    transform: translateX(18px);
+}
+.slider.round {
+    border-radius: 34px;
+}
+.rk-vapi-container .filler-injection{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--background-color);
+}
+.rk-vapi-container .filler-injection .filler-injection-left{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.rk-vapi-container .filler-injection-left svg{
+    fill: var(--secondary-color);
+}
+
+/* Range Slider */
+.slider-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+#slider-value {
+    color: #49bab8;
+    margin-right: 10px;
+    font-weight: bold;
+}
+.range-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 5px;
+    background: #293536;
+    outline: none;
+    opacity: 0.9;
+    transition: opacity .15s ease-in-out;
+}
+.range-slider:hover {
+    opacity: 1;
+}
+.range-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #49bab8;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.range-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #49bab8;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.labels {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 5px;
+}
+.labels span:first-child {
+    color: #ccc;
+}
+.labels span:last-child {
+    color: #ccc;
+}
+.rk-vapi-container .slider-range{
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+}
+.rk-vapi-container .slider-range .slider-range-right{
+    width: 80%;
+}
+
+
   
   
   

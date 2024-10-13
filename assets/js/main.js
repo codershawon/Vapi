@@ -48,6 +48,21 @@ $(document).ready(function() {
         }
     });
 
+    /* Assistant Tablist */
+    $('.content-container #content-mary').show(); // Show the content for the first item directly
+
+    // Click event for list items
+    $('.rk-vapi-assistant-menu ul li').on('click', function() {
+        // Get the content ID from the clicked list item
+        var contentId = $(this).data('content');
+
+        // Hide all content sections
+        $('.item-content').hide();
+
+        // Show the corresponding content section
+        $('#' + contentId).show();
+    });
+
 
     /* Copy ID */
     $(".copy-id").click(function() {
@@ -98,18 +113,49 @@ $(document).ready(function() {
         }
     });
 
-    /*------ Another Dropdown---------- */
+/*------ Dropdown Toggle and Selection---------- */
 
-    $('.dropdown-toggle').on('click', function(event) {
-        event.stopPropagation();
-        $(this).next('.dropdown-menu').toggleClass('hidden').siblings('.dropdown-menu').addClass('hidden');
+$('.dropdown-toggle').on('click', function(event) {
+    event.stopPropagation();
+    
+    $(this).next('.dropdown-menu').toggleClass('hidden').siblings('.dropdown-menu').addClass('hidden');
     });
 
     // Close dropdown when clicking outside
     $(document).on('click', () => $('.dropdown-menu').addClass('hidden'));
 
-    // Prevent dropdown from closing when clicking inside
     $('.dropdown-menu').on('click', (event) => event.stopPropagation());
+
+    // Handle menu item selection and add active class with checkmark
+    $('.dropdown-menu li').on('click', function() {
+        var selectedText = $(this).text();
+        
+        $(this).closest('.dropdown-container').find('.dropdown-toggle span').text(selectedText);
+
+        $('.dropdown-menu li').removeClass('active');
+        $(this).addClass('active');
+    });
+
+
+/* Multiple Item Selector */
+
+$('.dropdown-toggle-two').on('click', function(event) {
+    event.stopPropagation();
+    $(this).next('.dropdown-menu-two').toggleClass('invisible');
+});
+
+// Close dropdown when clicking outside
+$(document).on('click', () => $('.dropdown-menu-two').addClass('invisible'));
+
+// Handle multiple selection and update text
+$('.dropdown-menu-two li').on('click', function() {
+    $(this).toggleClass('active');
+    const selectedItems = $('.dropdown-menu-two li.active').map(function() {
+        return $(this).text();
+    }).get().join(', ') || 'Web';
+    $(this).closest('.dropdown-container-two').find('.dropdown-toggle-two span').text(selectedItems);
+});
+
 
   /* Latency Color Picker */
 changeWidth('web');
@@ -143,6 +189,7 @@ function changeWidth(menu) {
 }
 
 /* Tablist */
+
 $('.tab-button').on('click', function() {
     var tabID = $(this).data('tab');
 
@@ -151,7 +198,24 @@ $('.tab-button').on('click', function() {
 
     // Show the selected tab content
     $('#' + tabID).show();
-  });
+
+    // Remove the 'active' class from all buttons
+    $('.tab-button').removeClass('active');
+
+    // Add the 'active' class to the clicked button
+    $(this).addClass('active');
+});
+
+/* Range Slider */
+$(document).ready(function() {
+    // Set initial value
+    $('#slider-value').text($('#myRange').val());
+
+    // Update the value when the slider changes
+    $('#myRange').on('input', function() {
+        $('#slider-value').text($(this).val());
+    });
+});
 });
 
   

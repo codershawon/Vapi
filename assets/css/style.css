@@ -40,10 +40,96 @@ p{
     padding: 18px;
     overflow-x: hidden; 
 }
+/* Center Align Content */
+.rk-vapi-container .center-align{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.rk-vapi-container .center-align .center-align-top{
+    max-width: 330px;
+}
+.rk-vapi-container .center-align .disabled-btn{
+    pointer-events: none; 
+    opacity: 0.5;
+}
+.rk-vapi-container .center-align .center-align-top > svg{
+    height: 80px;
+    width: 80px;
+    fill: var(--secondary-color);
+}
+.rk-vapi-container .center-align p{
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+.rk-vapi-container .center-align .rk-vapi-assistant-buttons{
+    padding: 0!important;
+    border-bottom: none!important;
+}
+.rk-vapi-container .center-align  .card-details{
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #3b82f61a;
+    padding: 8px 12px;
+    border: 1px solid #3b82f64d;
+    border-radius: var(--border-radius);
+    margin-top: 10px;
+}
+.rk-vapi-container .center-align  .card-details svg{
+    fill: #facc15;
+    width: 12px;
+    height: 12px;
+}
+.rk-vapi-container .center-align  .card-details span{
+    color: #93c5fd;
+    font-size: 12px;
+}
+.rk-vapi-container .center-align  .card-details a{
+    color: #3B82F6;
+    text-decoration: none;
+    font-style: italic;
+}
+/* Drag & Drop Box */
+.drag-drop-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 150px;
+    border: 2px dashed #888;
+    border-radius: 10px;
+    background-color: #333;
+    color: #ccc;
+    text-align: center;
+    position: relative;
+    margin-bottom: 10px;
+    flex-direction: column;
+    padding: 16px;
+}
+.drag-drop-box:hover {
+    border-color: #ccc;
+}
+.drag-drop-box svg{
+    height: 48px;
+    width: 48px;
+    fill: var(--secondary-color);
+}
+.upload-message {
+    pointer-events: none;
+}
+.file-input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
 /* Common Button */
 .common-btn{
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     padding: 8px 16px;
     background-color: var(--btn-background-color);
@@ -51,6 +137,7 @@ p{
     color: #fff;
     border-color: transparent;
     cursor: pointer;
+    text-wrap: nowrap;
 } 
 .common-btn:hover{
     background-color: var(--btn-background-hover-color);
@@ -160,11 +247,11 @@ p{
     display: flex;
 }
 .rk-vapi-container .rk-vapi-right .rk-vapi-assistant-left{
-    width: 25%;
+    width: 22%;
     border-right: 1px solid var(--background-color);
 }
 .rk-vapi-container .rk-vapi-right .rk-vapi-assistant-right{
-    width: 75%;
+    width: 78%;
 }
 .rk-vapi-container .rk-vapi-right .rk-vapi-assistant-buttons{
     display: flex;
@@ -754,15 +841,15 @@ p{
     color: #fff;
     margin-top: 20px;
 }
-.rk-vapi-container #tab1 .tab-content-inner .tab-content-left .tab-content-text p{
+.rk-vapi-container .tab-content-text p{
     color: #ffe082;
 }
-.rk-vapi-container #tab1 .tab-content-inner .tab-content-left .tab-content-text{
+.rk-vapi-container .tab-content-text{
     background-color: #eab3081a;
     padding: 16px;
     border: 1px solid #eab30833;
     border-radius: var(--border-radius);
-    margin-top: 20px;
+    margin: 20px 0;
 }
 .rk-vapi-container #tab1 .tab-content-inner .tab-content-right{
     padding: 32px 16px;
@@ -784,6 +871,9 @@ p{
 }
 .rk-vapi-container #tab1 .tab-content-left .tab-content-blocks svg{
     fill: #fff;
+}
+.rk-vapi-container #tab5 .additional-configuration{
+    margin-top: 0!important;
 }
 .rk-vapi-container .tabs-content #tab1 > p{
     font-size: 14px;

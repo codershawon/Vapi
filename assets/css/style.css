@@ -147,7 +147,7 @@ p{
 } 
 /* Left Section CSS */
 .rk-vapi-container .rk-vapi-left{
-    width: 10%;
+    width: 250px;
 }
 .rk-vapi-container .rk-vapi-left a{
     text-decoration: none;
@@ -347,11 +347,11 @@ p{
     display: flex;
 }
 .rk-vapi-container .rk-vapi-right .rk-vapi-assistant-left{
-    width: 22%;
+    width: 360px;
     border-right: 1px solid var(--background-color);
 }
 .rk-vapi-container .rk-vapi-right .rk-vapi-assistant-right{
-    width: 78%;
+    flex-grow: 1;
 }
 .rk-vapi-container .rk-vapi-right .rk-vapi-assistant-buttons{
     display: flex;
@@ -390,12 +390,17 @@ p{
     flex-direction: column;
     gap: 10px;
 }
-.rk-vapi-container .rk-vapi-right .rk-vapi-assistant-menu ul li{
+.rk-vapi-container .rk-vapi-right .rk-vapi-assistant-menu ul li a{
     color: #ffffff;
     padding: 8px;
-    background-color: var(--menus-active-background-color);
     border-radius: var(--border-radius);
     cursor: pointer;
+    text-decoration: none;
+    display: block;
+}
+.rk-vapi-container .rk-vapi-right .rk-vapi-assistant-menu ul li:hover a,
+.rk-vapi-container .rk-vapi-right .rk-vapi-assistant-menu ul li.active a {
+    background-color: var(--menus-active-background-color);
 }
 /* Assistant Details Card */
 .rk-vapi-container .rk-assistant-details-card{

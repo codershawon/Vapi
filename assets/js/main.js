@@ -201,6 +201,15 @@ $(document).ready(function() {
         $('#slider-value').text($(this).val());
     });
 });
+
+/* Calls Table */
+$('#apiLogs').DataTable({
+    paging: true,
+    searching: true,
+    ordering: true,
+    info: true
+});
+
 });
 
   

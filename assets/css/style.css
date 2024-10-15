@@ -312,12 +312,13 @@ p{
 .rk-vapi-container .chart-containers .chart-container{
     flex-basis: 50%;
     background-color: var(--background-color);
-    padding: 20px;
+    padding: 30px;
     border-radius: var(--border-radius)
 }
 .rk-vapi-container .chart-containers .chart-container-inner{
     width: 300px;
     height: 300px;
+    margin: 0 auto;
     margin-top: 20px;
 }
 .rk-vapi-container .rk-overview-bottom{

@@ -48,21 +48,6 @@ $(document).ready(function() {
         }
     });
 
-    /* Assistant Tablist */
-    $('.content-container #content-mary').show(); // Show the content for the first item directly
-
-    // Click event for list items
-    $('.rk-vapi-assistant-menu ul li').on('click', function() {
-        // Get the content ID from the clicked list item
-        var contentId = $(this).data('content');
-
-        // Hide all content sections
-        $('.item-content').hide();
-
-        // Show the corresponding content section
-        $('#' + contentId).show();
-    });
-
 
     /* Copy ID */
     $(".copy-id").click(function() {

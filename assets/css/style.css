@@ -239,6 +239,101 @@ p{
 .hidden {
     display: none;
 }
+
+/* Overview Page */
+.rk-vapi-container .rk-vapi-right-first{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+    background-color:var(--background-color);
+    border-radius: 8px 8px 0 0;
+}
+.rk-vapi-container .rk-vapi-right-first svg{
+    height: 20px;
+    width: 20px;
+    fill: var(--secondary-color);
+    background-color: var(--primary-color);
+    padding: 4px;
+    border-radius: var(--border-radius);
+}
+.rk-vapi-container .stat-card-container{
+    display: flex;
+    gap: 10px;
+    padding: 16px;
+}
+.rk-vapi-container .stat-card{
+    position: relative;
+    flex-basis: 25%;
+    overflow: hidden;
+    background-color: #1c1e21;
+    border-radius: 10px;
+}
+.rk-vapi-container .stat-card svg{
+    position: absolute;
+    left: -5px;
+    bottom: -5px;
+    opacity: 0.15;
+    width: 390px!important;
+    height: 140px!important;
+}
+.rk-vapi-container .stat-card-bottom{
+    padding: 20px;
+}
+.rk-vapi-container .stat-card-bottom h3{
+    font-size: 18px;
+    margin: 0!important;
+    color: #ffffff80;
+    font-weight: bold;
+}
+.rk-vapi-container .stat-card-bottom .stat-value{
+    font-size: 48px;
+    line-height: 1;
+    font-weight: bold;
+    color: #fff;
+}
+.rk-vapi-container .stat-card-bottom .stat-change{
+    color: #f87171;
+    margin-top: 10px;
+}
+.rk-vapi-container .stat-card-bottom .stat-change-another{
+    color: #35968c;
+    margin-top: 10px;
+}
+.rk-vapi-container .overview-right{
+    display: flex;
+    flex-direction: column;
+}
+.rk-vapi-container .chart-containers{
+    display: flex; 
+    gap: 20px;
+    width: 60%;
+}
+.rk-vapi-container .chart-containers .chart-container{
+    flex-basis: 50%;
+    background-color: var(--background-color);
+    padding: 20px;
+    border-radius: var(--border-radius)
+}
+.rk-vapi-container .chart-containers .chart-container-inner{
+    width: 300px;
+    height: 300px;
+    margin-top: 20px;
+}
+.rk-vapi-container .rk-overview-bottom{
+    display: flex;
+    gap: 20px;
+    padding: 16px;
+}
+.rk-vapi-container .overview-table{
+    padding: 0!important;
+}
+.rk-vapi-container .overview-table th{
+    color: #fff;
+}
+.rk-vapi-container .overview-table td{
+    color: var(--secondary-color);
+}
 /* Assistant */
 .rk-vapi-container .rk-vapi-right{
     width: 90%;
@@ -1055,6 +1150,76 @@ input:checked + .slider:before {
 .rk-vapi-container .slider-range .slider-range-right{
     width: 80%;
 }
+/* Calls Table */
+.rk-vapi-container .table-container {
+    width: 100%;
+    color: var(--secondary-color);
+}
+.rk-vapi-container .table-content-inner{
+    padding: 16px;
+}
+.rk-vapi-container .search-container {
+    margin-bottom: 20px;
+}
+.rk-vapi-container #searchBox {
+    width: 300px;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    border: none;
+    background-color: var(--background-color);
+    outline: none;
+}
+.rk-vapi-container .api-logs {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--background-color);
+    border: 1px solid #444;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+.rk-vapi-container .api-logs th, .rk-vapi-container .api-logs td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #444;
+}
+.rk-vapi-container .api-logs th {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.rk-vapi-container .api-logs tbody tr:hover {
+    background-color: #3a3a3a;
+}
+.rk-vapi-container .method {
+    display: inline-block;
+    padding: 2px 20px;
+    border-radius: 100px;
+    font-weight: bold;
+    font-size: 12px;
+}
+.rk-vapi-container .method.get {
+    background-color: #3182ce;
+    color: #fff;
+}
+.rk-vapi-container .method.post {
+    background-color: #2f855a;
+    color: #fff;
+}
+.rk-vapi-container .status-code {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 100px;
+    font-weight: bold;
+    font-size: 12px;
+}
+.rk-vapi-container .status-code.success {
+    background-color: #28a745;
+    color: #fff;
+}
+#myChart {
+            max-width: 400px;
+            max-height: 400px;
+        }
 
 
   

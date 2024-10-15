@@ -205,7 +205,9 @@ p{
     z-index: 0;
 }
 .rk-vapi-container .rk-vapi-left .rk-vapi-menus-common:hover,
-.rk-vapi-container .rk-vapi-left .rk-vapi-submenu-inner:hover{
+.rk-vapi-container .rk-vapi-left .rk-vapi-submenu-inner:hover,
+.rk-vapi-container .rk-vapi-left .rk-vapi-menus-common.active,
+.rk-vapi-container .rk-vapi-left .rk-vapi-submenu-inner.active{
     background-color: #1c1e2180;
     border: 1px solid #31313580;
 }
@@ -229,10 +231,12 @@ p{
 .rk-vapi-container .rk-vapi-left .rk-vapi-submenu-container p{
     font-size: 14px;
 }
-.rk-vapi-container .rk-vapi-left .rk-vapi-menus-common:hover svg{
+.rk-vapi-container .rk-vapi-left .rk-vapi-menus-common:hover svg,
+.rk-vapi-container .rk-vapi-left .rk-vapi-menus-common.active svg{
     fill: var(--background-hover-color);
 }
-.rk-vapi-container .rk-vapi-left .rk-vapi-menus-common:hover p{
+.rk-vapi-container .rk-vapi-left .rk-vapi-menus-common:hover p,
+.rk-vapi-container .rk-vapi-left .rk-vapi-menus-common.active p{
     color: var(--background-hover-color);
 }
 /* Tab Asistant */
